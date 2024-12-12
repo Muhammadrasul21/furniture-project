@@ -2,7 +2,7 @@ import React from 'react'
 
 const Info = () => {
   return (
-    <div>
+    <div className="container max-w-[1332px] mx-auto px-4">
          <div className='flex flex-col items-center text-center gap-10 my-[30px] sm:mb-[100px] sm:flex-row sm:justify-between sm:items-start sm:text-start'>
 <span className='w-[330px] font-bold text-4xl'>Производство светильников</span>
 <p className='w-[340px] max-w-full sm:w-[640px]'>

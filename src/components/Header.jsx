@@ -131,7 +131,7 @@ const Navbar = () => {
             <input
               type="text"
               placeholder="Поиск по товарам"
-              className="flex-grow outline-none"
+              className="flex-grow outline-none bg-inherit"
             />
             <IoIosSearch className="text-xl text-gray-500" />
           </div>

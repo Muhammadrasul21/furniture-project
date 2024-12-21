@@ -126,16 +126,6 @@ const Navbar = () => {
           </div>
         )}
 
-        <div className="sm:hidden flex justify-center gap-4 mt-4">
-          <div className="flex items-center border border-black rounded-3xl w-[80%] px-4 py-3 mb-4">
-            <input
-              type="text"
-              placeholder="Поиск по товарам"
-              className="flex-grow outline-none bg-inherit"
-            />
-            <IoIosSearch className="text-xl text-gray-500" />
-          </div>
-        </div>
 
         {isModuleOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-20">

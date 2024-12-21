@@ -61,7 +61,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="flex items-center justify-between py-4 gap-4">
+        <div className="flex items-center justify-between pb-3 gap-4">
           <div className="sm:hidden flex items-center" onClick={toggleMenu}>
             <FiMenu className="text-2xl" />
           </div>
@@ -125,7 +125,6 @@ const Navbar = () => {
             </div>
           </div>
         )}
-
 
         {isModuleOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-20">

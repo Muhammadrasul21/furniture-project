@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../assets/logo.svg";
 import { FiMenu } from "react-icons/fi";
 import { IoIosSearch } from "react-icons/io";
@@ -7,32 +7,51 @@ import { FaCartShopping, FaSignal } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import { navItems } from "../stock/index";
 import { IoClose } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isModuleOpen, setModuleOpen] = useState(false);
+  const [isShrunk, setIsShrunk] = useState(false);
+  const [isBlurred, setIsBlurred] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
   const toggleModule = () => setModuleOpen((prev) => !prev);
 
-  return (
-    <nav className="bg-white">
-      <div className="container max-w-[1332px] mx-auto px-4">
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setIsShrunk(true);
+      setIsBlurred(true);
+    } else {
+      setIsShrunk(false);
+      setIsBlurred(false);
+    }
+  };
 
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <nav className={` ${isShrunk ? "fixed top-0 w-full z-10 backdrop-blur-2xl transition-all duration-300 ease-in-out" : ""}`}>
+      <div className="container max-w-[1332px] mx-auto px-4">
         <div className="flex justify-between py-4">
           <div className="hidden sm:flex items-center gap-7">
-            {navItems.map((item, index) => (
+            {navItems.map((item) => (
               <a
-                key={index}
-                href="/about"
+                key={item.id}
+                href={item.path}
                 className="opacity-60 hover:opacity-100 transition duration-300 ease-in-out"
               >
-                {item}
+                {item.title}
               </a>
             ))}
           </div>
           <div className="flex justify-center sm:justify-end gap-6 text-[#454545]">
-            <p onClick={toggleModule} className="opacity-60 hover:opacity-100 transition">8 (800) 890-46-56</p>
+            <p onClick={toggleModule} className="opacity-60 hover:opacity-100 transition">
+              8 (800) 890-46-56
+            </p>
             <p
               onClick={toggleModule}
               className="opacity-60 hover:opacity-100 cursor-pointer transition"
@@ -59,7 +78,7 @@ const Navbar = () => {
               <input
                 type="text"
                 placeholder="Поиск по товарам"
-                className="flex-grow outline-none"
+                className="flex-grow outline-none bg-inherit"
               />
               <IoIosSearch className="text-xl text-gray-500" />
             </div>
@@ -67,7 +86,9 @@ const Navbar = () => {
           <div className="flex gap-4">
             <IconWithLabel icon={<CiHeart />} label="Избранное" />
             <IconWithLabel icon={<FaSignal />} label="Сравнение" className="hidden md:flex" />
-            <IconWithLabel icon={<FaCartShopping />} label="Корзина" />
+            <Link to="/basket">
+              <IconWithLabel icon={<FaCartShopping />} label="Корзина" />
+            </Link>
           </div>
         </div>
 
@@ -78,17 +99,19 @@ const Navbar = () => {
               <div className="flex gap-4">
                 <CiHeart className="text-xl" />
                 <FaSignal className="text-xl" />
-                <FaCartShopping className="text-xl" />
+                <Link to="/basket">
+                  <FaCartShopping className="text-xl" />
+                </Link>
               </div>
             </div>
             <div className="mt-4">
               {navItems.map((item, index) => (
                 <a
                   key={index}
-                  href="/about"
+                  href={item.path}
                   className="block py-2 text-center border-b opacity-60 hover:opacity-100 transition"
                 >
-                  {item}
+                  {item.title}
                 </a>
               ))}
             </div>
@@ -104,7 +127,7 @@ const Navbar = () => {
         )}
 
         <div className="sm:hidden flex justify-center gap-4 mt-4">
-          <div className="flex items-center border border-black rounded-3xl w-[80%] px-4 py-3">
+          <div className="flex items-center border border-black rounded-3xl w-[80%] px-4 py-3 mb-4">
             <input
               type="text"
               placeholder="Поиск по товарам"
@@ -122,8 +145,8 @@ const Navbar = () => {
               <IoClose onClick={toggleModule} className="absolute top-10 right-6 w-10 h-6 opacity-50"/>
 
               <div className="flex flex-col gap-3 mt-12">
-              <input type="text" className="border border-black p-4 rounded-[100px]" placeholder="ФИО" />
-              <input type="number" className="border border-black p-4 rounded-[100px]" placeholder="телефон" />
+                <input type="text" className="border border-black p-4 rounded-[100px]" placeholder="ФИО" />
+                <input type="number" className="border border-black p-4 rounded-[100px]" placeholder="телефон" />
               </div>
 
               <button

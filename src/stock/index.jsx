@@ -19,19 +19,46 @@ import { FaOdnoklassniki } from "react-icons/fa";
 import { SlSocialVkontakte } from "react-icons/sl";
 import { FaTelegramPlane } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
-import { info } from "autoprefixer";
-
 export const socialMedia = ["VK", "VK", "VK"];
 
 export const navItems = [
-  "Главная",
-  "O компании",
-  "Доставка и оплата",
-  "Возврат",
-  "Гарантии",
-  "Контакты",
-  "Блог",
-];
+  {
+    id: 1,
+    title: "Главная",
+    path: "/",
+  },
+  {
+    id: 2,
+    title: "O компании",
+    path: "/about",
+  },
+  {
+    id: 3,
+    title: "Доставка и оплата",
+    path: "/payment",
+  },
+  {
+    id: 4,
+    title: "Возврат",
+    path: "/return",
+  },
+  {
+    id: 5,
+    title: "Гарантии",
+    path: "/garant",
+  },
+  {
+    id: 6,
+    title: "Контакты",
+    path: "/contacts",
+  },
+  {
+    id: 7,
+    title: "Блог",
+    path: "/blog",
+  },
+ 
+]
 
 export const footerInfo = [
   "Люстры",
@@ -275,3 +302,4 @@ export const detailXarakteristika = [
     info:"Rock Shox SID RL3 Air / демпфер DNA3 3-режима / 15mm QR axle / коническая рулевая труба / Удалённая блокировка, регулировка отскока / ход 100mm"
   }
 ]
+export const returnItems=["Товар имеет первоначальный вид, имеется товарная кондиция;", "Товар имеет полную комплектацию, включая упаковочные материалы;","Товар не имеет следов подключался и не имеет признаков монтажа;","Упаковка товара не имеет повреждений, присутствует первоначальный товарный вид;","Есть документ, подтверждающий покупку в нашем интернет-магазине.","Для возврата товара необходимо привезти к нам в офис. ","Товар из других городов можно прислать нам транспортной компанией, при этом услуги транспортной компании оплачиваются клиентом.","*B течение 14 дней для отдельных брендов. При оформлении заказа уточните y менеджера"]

@@ -44,7 +44,7 @@ const Footer = () => {
             <p>Товары</p>
             {navItems.map((item, index) => (
               <li className="opacity-50" key={index}>
-                {item}
+                {item.title}
               </li>
             ))}
           </ul>

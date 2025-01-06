@@ -34,7 +34,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={` ${isShrunk ? "fixed top-0 w-full z-10 backdrop-blur-2xl transition-all duration-300 ease-in-out" : ""}`}>
+    <nav className={`${isShrunk ? "fixed top-0 w-full z-10 backdrop-blur-2xl transition-all duration-300 ease-in-out" : ""}`}>
       <div className="container max-w-[1332px] mx-auto px-4">
         <div className="flex justify-between py-4">
           <div className="hidden sm:flex items-center gap-7">
@@ -87,7 +87,10 @@ const Navbar = () => {
             <IconWithLabel icon={<CiHeart />} label="Избранное" />
             <IconWithLabel icon={<FaSignal />} label="Сравнение" className="hidden md:flex" />
             <Link to="/basket">
-              <IconWithLabel icon={<FaCartShopping />} label="Корзина" />
+              <IconWithLabel
+                icon={<FaCartShopping />}
+                label="Корзина" 
+              />
             </Link>
           </div>
         </div>
@@ -152,8 +155,8 @@ const Navbar = () => {
   );
 };
 
-const IconWithLabel = ({ icon, label, className = "" }) => (
-  <div className={`flex flex-col items-center gap-1 ${className}`}>
+const IconWithLabel = ({ icon, label, onClick, className = "" }) => (
+  <div onClick={onClick} className={`flex flex-col items-center gap-1 ${className}`}>
     <div className="text-xl">{icon}</div>
     <p className="text-xs hidden sm:block">{label}</p>
   </div>

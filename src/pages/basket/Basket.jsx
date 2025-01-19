@@ -4,6 +4,8 @@ import { useBasket } from '../../components/BasketContext';
 import { FaAngleRight } from 'react-icons/fa';
 import { RiDeleteBinLine } from "react-icons/ri";
 import korzinka from "../../assets/korzinka.png";
+import Registration from '../../components/Registration';
+import Payment from '../../components/Payment';
 
 const Basket = () => {
   const { basket, toggleBasketItem } = useBasket();
@@ -66,6 +68,8 @@ const Basket = () => {
             </div>
           )}
         </div>
+        <Registration/>
+        <Payment/>
       </Layout>
     </div>
   );

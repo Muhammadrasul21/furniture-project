@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { BasketProvider } from "./components/BasketContext"; // BasketProvider importi
+import { BasketProvider } from "./components/BasketContext";
 import Home from "./pages/home/Home";
 import AboutPage from "./pages/about/AboutPage";
 import AllProducts from "./components/AllProducts";

@@ -39,13 +39,13 @@ const Navbar = () => {
         <div className="flex justify-between py-4">
           <div className="hidden sm:flex items-center gap-7">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.id}
-                href={item.path}
+                to={item.path}
                 className="opacity-60 hover:opacity-100 transition duration-300 ease-in-out"
               >
                 {item.title}
-              </a>
+              </Link>
             ))}
           </div>
           <div className="flex justify-center sm:justify-end gap-6 text-[#454545]">

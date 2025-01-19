@@ -88,6 +88,7 @@ const Navbar = () => {
             <IconWithLabel icon={<FaSignal />} label="Сравнение" className="hidden md:flex" />
             <Link to="/basket">
               <IconWithLabel
+              
                 icon={<FaCartShopping />}
                 label="Корзина" 
               />
